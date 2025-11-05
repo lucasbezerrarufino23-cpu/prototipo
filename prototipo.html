@@ -1,255 +1,403 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8"/>
 <title>Treinamento - Segurança Cibernética</title>
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    display: flex;
-  }
-  .sidebar {
-    width: 220px;
-    background-color: #1f3b5c;
-    color: #fff;
-    height: 100vh;
-    padding: 20px;
-  }
-  .sidebar h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  .sidebar ul li {
-    margin: 15px 0;
-    cursor: pointer;
-  }
-  .sidebar ul li:hover {
-    text-decoration: underline;
-  }
-  .main {
-    flex: 1;
-    padding: 20px;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  .card-container {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-  }
-  .card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    flex: 1;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  .progress-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 8px solid #3498db;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin: auto;
-  }
-  .trilha {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-  }
-  .trilha button {
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    flex: 1;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .trilha button:hover {
-    background-color: #e0f7fa;
-  }
-  .intro-content {
-    display: none;
-    background-color: #eaf2f8;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-  }
-  .quiz {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  .question {
-    margin-bottom: 15px;
-  }
-  button.quiz-btn {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  button.quiz-btn:hover {
-    background-color: #2980b9;
-  }
-  footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
-  }
-</style>
+         body {
+         margin: 0;
+         font-family: Arial, sans-serif;
+         background-color: #f4f6f8;
+         display: flex;
+         }
+         .sidebar {
+         width: 220px;
+         background-color: #1f3b5c;
+         color: #fff;
+         height: 100vh;
+         padding: 20px;
+         }
+         .sidebar h2 {
+         font-size: 18px;
+         margin-bottom: 20px;
+         }
+         .sidebar ul {
+         list-style: none;
+         padding: 0;
+         }
+         .sidebar ul li {
+         margin: 15px 0;
+         cursor: pointer;
+         }
+         .sidebar ul li:hover {
+         text-decoration: underline;
+         }
+         .main {
+         flex: 1;
+         padding: 20px;
+         }
+         .header {
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 20px;
+         }
+         .card-container {
+         display: flex;
+         gap: 20px;
+         margin-bottom: 30px;
+         }
+         .card {
+         background: #fff;
+         padding: 15px;
+         border-radius: 8px;
+         flex: 1;
+         text-align: center;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+         }
+         .progress-circle {
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+         border: 8px solid #3498db;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: bold;
+         margin: auto;
+         }
+         .trilha {
+         display: flex;
+         gap: 15px;
+         margin-bottom: 30px;
+         }
+         .trilha button {
+         background: #fff;
+         padding: 10px;
+         border-radius: 8px;
+         flex: 1;
+         text-align: center;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         }
+         .trilha button:hover {
+         background-color: #e0f7fa;
+         }
+         .intro-content {
+         display: none;
+         background-color: #eaf2f8;
+         padding: 20px;
+         border-radius: 8px;
+         margin-bottom: 30px;
+         }
+         .quiz {
+         background: #fff;
+         padding: 20px;
+         border-radius: 8px;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+         }
+         .question {
+         margin-bottom: 15px;
+         }
+         button.quiz-btn {
+         background-color: #3498db;
+         color: #fff;
+         border: none;
+         padding: 10px 20px;
+         border-radius: 5px;
+         cursor: pointer;
+         }
+         button.quiz-btn:hover {
+         background-color: #2980b9;
+         }
+         footer {
+         text-align: center;
+         margin-top: 20px;
+         font-size: 14px;
+         color: #555;
+         }
+      </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-
-<div class="sidebar">
-  <h2>Treinamento </br>Segurança Cibernética</h2>
-  <ul>
-    <li>Início</li>
-    <li>Módulos</li>
-    <li>Simulação</li>
-    <li>Relatórios</li>
-  </ul>
+<div class="d-flex">
+<div class="bg-dark text-white p-3" style="width: 250px; height: 100vh; position: fixed;">
+<h4>Menu</h4>
+<ul class="nav flex-column">
+<li class="nav-item"><a class="nav-link text-white" href="#">Início</a></li>
+<li class="nav-item"><a class="nav-link text-white" href="#">Módulos</a></li>
+<li class="nav-item"><a class="nav-link text-white" href="#">Simulação</a></li>
+<li class="nav-item"><a class="nav-link text-white" href="#">Relatórios</a></li>
+</ul>
 </div>
-
-<div class="main">
-  <div class="header">
-    <h1>Treinamento Interativo de Conscientização em Segurança Cibernética</h1>
-  </div>
-
-  <div class="card-container">
-    <div class="card">
-      <div class="progress-circle">60%</div>
-      <p>Seu progresso</p>
-    </div>
-    <div class="card">
-      <h2>2</h2>
-      <p>Módulos concluídos</p>
-    </div>
-    <div class="card">
-      <h2>75</h2>
-      <p>Pontuação total</p>
-    </div>
-  </div>
-
-  <h3>Trilha de aprendizado</h3>
-  <div class="trilha">
-    <button onclick="mostrarIntroducao()">Introdução ✅</button>
-    <button>Phishing 🔒</button>
-    <button>Engenharia Social</button>
-    <button>Senhas Seguras</button>
-  </div>
-
-  <div class="intro-content" id="intro">
-    <h2>📘 Introdução</h2>
-    <p>
-      A cibersegurança é o conjunto de práticas e tecnologias utilizadas para proteger sistemas, redes e dados contra ataques digitais. 
-      Os principais riscos incluem roubo de informações, invasões, vírus e fraudes online. 
-      Para se proteger, é essencial usar senhas fortes, manter softwares atualizados, identificar tentativas de phishing e nunca compartilhar dados sensíveis sem verificação.
-    </p>
-    <p>
-      Um dos ataques mais comuns é o <strong>phishing</strong>, onde criminosos tentam enganar usuários para obter informações confidenciais, como senhas ou dados bancários. 
-      Além disso, o uso de senhas fracas ou repetidas facilita o acesso indevido a contas pessoais e corporativas.
-    </p>
-    <p>
-      A atualização constante de sistemas e o uso de antivírus confiáveis são medidas básicas, mas eficazes, para manter a segurança digital.
-    </p>
-  </div>
-
-  <div class="quiz">
-    <h3>Quiz: Segurança Cibernética</h3>
-    <!-- Perguntas -->
-    <div class="question">
-      <p>1. Qual é uma boa prática para criar senhas seguras?</p>
-      <label><input type="radio" name="q1" value="a"> Usar datas de nascimento</label><br>
-      <label><input type="radio" name="q1" value="b"> Usar combinações de letras, números e símbolos</label><br>
-      <label><input type="radio" name="q1" value="c"> Reutilizar senhas antigas</label>
-    </div>
-    <div class="question">
-      <p>2. O que é phishing?</p>
-      <label><input type="radio" name="q2" value="a"> Um tipo de firewall</label><br>
-      <label><input type="radio" name="q2" value="b"> Um ataque que tenta enganar o usuário para obter informações</label><br>
-      <label><input type="radio" name="q2" value="c"> Um antivírus gratuito</label>
-    </div>
-    <div class="question">
-      <p>3. Qual dessas ações ajuda a proteger seus dados?</p>
-      <label><input type="radio" name="q3" value="a"> Compartilhar senhas com colegas</label><br>
-      <label><input type="radio" name="q3" value="b"> Atualizar softwares regularmente</label><br>
-      <label><input type="radio" name="q3" value="c"> Ignorar atualizações</label>
-    </div>
-    <div class="question">
-      <p>4. Qual é o papel de um antivírus?</p>
-      <label><input type="radio" name="q4" value="a"> Aumentar a velocidade da internet</label><br>
-      <label><input type="radio" name="q4" value="b"> Detectar e remover softwares maliciosos</label><br>
-      <label><input type="radio" name="q4" value="c"> Criar senhas automáticas</label>
-    </div>
-    <div class="question">
-      <p>5. Qual dessas atitudes representa um risco à segurança da informação?</p>
-      <label><input type="radio" name="q5" value="a"> Utilizar autenticação de dois fatores</label><br>
-      <label><input type="radio" name="q5" value="b"> Acessar redes Wi-Fi públicas sem proteção</label><br>
-      <label><input type="radio" name="q5" value="c"> Fazer backup dos dados regularmente</label>
-    </div>
-    <button class="quiz-btn" onclick="verificarRespostas()">Verificar Respostas</button>
-    <p id="resultado"></p>
-  </div>
-
- <footer>
-    Trabalho defesa cibernética - Impacta
-
-    </br>
-    </br>
-    Autores: Felipe Silva de Oliveira, Gabriel Atico Santos, Gustavo Costa de Medeiros, Ivo Pereyra Ferreira, Lucas Bezerra Rufino, Luiz Caciraghi Silva, Mariana Naomi Ota
-  </footer>
+<div class="container-fluid" style="margin-left: 260px;">
+<div class="row mt-4">
+<div class="col-md-8">
+<h2>Painel do Usuário</h2>
+<div class="row">
+<div class="col-md-4">
+<div class="card text-center">
+<div class="card-body">
+<h5 class="card-title">Conclusão</h5>
+<div class="progress-circle" style="font-size: 24px;">75%</div>
 </div>
-
-   
-
+</div>
+</div>
+<div class="col-md-4">
+<div class="card text-center">
+<div class="card-body">
+<h5 class="card-title">Módulos Concluídos</h5>
+<p>3 de 4</p>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card text-center">
+<div class="card-body">
+<h5 class="card-title">Pontuação Total</h5>
+<p>1200 pts</p>
+</div>
+</div>
+</div>
+</div>
+<h3 class="mt-4">Trilha de Aprendizado</h3>
+<div class="row">
+<div class="col-md-3">
+<div class="card bg-success text-white">
+<div class="card-body"><a class="text-white" href="#" onclick="mostrarConteudo('Introdução_perguntas')">Introdução</a></div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="card bg-warning text-dark">
+<div class="card-body"><a class="text-white" href="#" onclick="mostrarConteudo('Phishing_perguntas')">Phishing</a></div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="card bg-secondary text-white">
+<div class="card-body"><a class="text-white" href="#" onclick="mostrarConteudo('Engenharia Social_perguntas')">Engenharia Social</a></div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="card bg-secondary text-white">
+<div class="card-body"><a class="text-white" href="#" onclick="mostrarConteudo('Senhas Seguras_perguntas')">Senhas Seguras</a></div>
+</div>
+</div>
+</div>
+<div class="mt-3" id="Introdução_perguntas" style="display:none">
+<h5>Perguntas sobre Introdução</h5>
+<div class="mb-2">
+<label>O que é cibersegurança?</label>
+<div><input name="Introdução_0" type="radio" value="0"/> Proteção física de computadores</div>
+<div><input name="Introdução_0" type="radio" value="1"/> Conjunto de práticas para proteger sistemas e dados</div>
+<div><input name="Introdução_0" type="radio" value="2"/> Uso de redes sociais</div>
+<div><input name="Introdução_0" type="radio" value="3"/> Instalação de jogos</div>
+</div>
+<div class="mb-2">
+<label>Qual o objetivo da cibersegurança?</label>
+<div><input name="Introdução_1" type="radio" value="0"/> Compartilhar dados</div>
+<div><input name="Introdução_1" type="radio" value="1"/> Proteger contra ataques digitais</div>
+<div><input name="Introdução_1" type="radio" value="2"/> Criar redes públicas</div>
+<div><input name="Introdução_1" type="radio" value="3"/> Remover senhas</div>
+</div>
+<div class="mb-2">
+<label>O que são dados sensíveis?</label>
+<div><input name="Introdução_2" type="radio" value="0"/> Informações públicas</div>
+<div><input name="Introdução_2" type="radio" value="1"/> Informações pessoais ou confidenciais</div>
+<div><input name="Introdução_2" type="radio" value="2"/> Dados de redes sociais</div>
+<div><input name="Introdução_2" type="radio" value="3"/> Mensagens de texto</div>
+</div>
+<div class="mb-2">
+<label>Como evitar fraudes online?</label>
+<div><input name="Introdução_3" type="radio" value="0"/> Clicar em todos os links</div>
+<div><input name="Introdução_3" type="radio" value="1"/> Verificar fontes e não clicar em links suspeitos</div>
+<div><input name="Introdução_3" type="radio" value="2"/> Responder e-mails desconhecidos</div>
+<div><input name="Introdução_3" type="radio" value="3"/> Ignorar atualizações</div>
+</div>
+<div class="mb-2">
+<label>Qual ferramenta ajuda na proteção digital?</label>
+<div><input name="Introdução_4" type="radio" value="0"/> Editor de texto</div>
+<div><input name="Introdução_4" type="radio" value="1"/> Antivírus</div>
+<div><input name="Introdução_4" type="radio" value="2"/> Calculadora</div>
+<div><input name="Introdução_4" type="radio" value="3"/> Jogos</div>
+</div>
+<button class="btn btn-success" onclick="validar_Introdução()">Verificar Respostas</button>
+<div class="mt-2" id="feedback_Introdução"></div>
+</div>
+<div class="mt-3" id="Phishing_perguntas" style="display:none">
+<h5>Perguntas sobre Phishing</h5>
+<div class="mb-2">
+<label>O que caracteriza um e-mail de phishing?</label>
+<div><input name="Phishing_0" type="radio" value="0"/> Design moderno</div>
+<div><input name="Phishing_0" type="radio" value="1"/> Erros de ortografia e links suspeitos</div>
+<div><input name="Phishing_0" type="radio" value="2"/> Assinatura digital</div>
+<div><input name="Phishing_0" type="radio" value="3"/> Fonte confiável</div>
+</div>
+<div class="mb-2">
+<label>Qual o objetivo do phishing?</label>
+<div><input name="Phishing_1" type="radio" value="0"/> Enviar promoções</div>
+<div><input name="Phishing_1" type="radio" value="1"/> Obter informações confidenciais</div>
+<div><input name="Phishing_1" type="radio" value="2"/> Melhorar segurança</div>
+<div><input name="Phishing_1" type="radio" value="3"/> Atualizar software</div>
+</div>
+<div class="mb-2">
+<label>Como identificar phishing?</label>
+<div><input name="Phishing_2" type="radio" value="0"/> Urgência e erros sutis</div>
+<div><input name="Phishing_2" type="radio" value="1"/> Conteúdo educativo</div>
+<div><input name="Phishing_2" type="radio" value="2"/> Fonte segura</div>
+<div><input name="Phishing_2" type="radio" value="3"/> Imagem profissional</div>
+</div>
+<div class="mb-2">
+<label>O que fazer ao receber e-mail suspeito?</label>
+<div><input name="Phishing_3" type="radio" value="0"/> Clicar no link</div>
+<div><input name="Phishing_3" type="radio" value="1"/> Compartilhar com amigos</div>
+<div><input name="Phishing_3" type="radio" value="2"/> Não clicar e reportar</div>
+<div><input name="Phishing_3" type="radio" value="3"/> Responder imediatamente</div>
+</div>
+<div class="mb-2">
+<label>Phishing pode ocorrer em redes sociais?</label>
+<div><input name="Phishing_4" type="radio" value="0"/> Não</div>
+<div><input name="Phishing_4" type="radio" value="1"/> Sim</div>
+<div><input name="Phishing_4" type="radio" value="2"/> Apenas por e-mail</div>
+<div><input name="Phishing_4" type="radio" value="3"/> Somente em sites</div>
+</div>
+<button class="btn btn-success" onclick="validar_Phishing()">Verificar Respostas</button>
+<div class="mt-2" id="feedback_Phishing"></div>
+</div>
+<div class="mt-3" id="Engenharia Social_perguntas" style="display:none">
+<h5>Perguntas sobre Engenharia Social</h5>
+<div class="mb-2">
+<label>O que é engenharia social?</label>
+<div><input name="Engenharia Social_0" type="radio" value="0"/> Manipulação para obter informações</div>
+<div><input name="Engenharia Social_0" type="radio" value="1"/> Criação de redes</div>
+<div><input name="Engenharia Social_0" type="radio" value="2"/> Programação de sistemas</div>
+<div><input name="Engenharia Social_0" type="radio" value="3"/> Segurança física</div>
+</div>
+<div class="mb-2">
+<label>Quem pode ser alvo?</label>
+<div><input name="Engenharia Social_1" type="radio" value="0"/> Somente empresas</div>
+<div><input name="Engenharia Social_1" type="radio" value="1"/> Qualquer pessoa</div>
+<div><input name="Engenharia Social_1" type="radio" value="2"/> Apenas usuários avançados</div>
+<div><input name="Engenharia Social_1" type="radio" value="3"/> Ninguém</div>
+</div>
+<div class="mb-2">
+<label>Como se proteger?</label>
+<div><input name="Engenharia Social_2" type="radio" value="0"/> Desconfiar de pedidos incomuns</div>
+<div><input name="Engenharia Social_2" type="radio" value="1"/> Aceitar todas solicitações</div>
+<div><input name="Engenharia Social_2" type="radio" value="2"/> Compartilhar senhas</div>
+<div><input name="Engenharia Social_2" type="radio" value="3"/> Ignorar treinamentos</div>
+</div>
+<div class="mb-2">
+<label>Engenharia social depende de tecnologia?</label>
+<div><input name="Engenharia Social_3" type="radio" value="0"/> Sim</div>
+<div><input name="Engenharia Social_3" type="radio" value="1"/> Não necessariamente</div>
+<div><input name="Engenharia Social_3" type="radio" value="2"/> Sempre</div>
+<div><input name="Engenharia Social_3" type="radio" value="3"/> Nunca</div>
+</div>
+<div class="mb-2">
+<label>Qual atitude ajuda a evitar ataques?</label>
+<div><input name="Engenharia Social_4" type="radio" value="0"/> Educação e conscientização</div>
+<div><input name="Engenharia Social_4" type="radio" value="1"/> Ignorar mensagens</div>
+<div><input name="Engenharia Social_4" type="radio" value="2"/> Usar redes abertas</div>
+<div><input name="Engenharia Social_4" type="radio" value="3"/> Compartilhar dados</div>
+</div>
+<button class="btn btn-success" onclick="validar_Engenharia Social()">Verificar Respostas</button>
+<div class="mt-2" id="feedback_Engenharia Social"></div>
+</div>
+<div class="mt-3" id="Senhas Seguras_perguntas" style="display:none">
+<h5>Perguntas sobre Senhas Seguras</h5>
+<div class="mb-2">
+<label>Como criar senha forte?</label>
+<div><input name="Senhas Seguras_0" type="radio" value="0"/> Usar nome e data de nascimento</div>
+<div><input name="Senhas Seguras_0" type="radio" value="1"/> Misturar letras, números e símbolos</div>
+<div><input name="Senhas Seguras_0" type="radio" value="2"/> Repetir senhas</div>
+<div><input name="Senhas Seguras_0" type="radio" value="3"/> Usar apenas números</div>
+</div>
+<div class="mb-2">
+<label>É seguro repetir senhas?</label>
+<div><input name="Senhas Seguras_1" type="radio" value="0"/> Sim</div>
+<div><input name="Senhas Seguras_1" type="radio" value="1"/> Não</div>
+<div><input name="Senhas Seguras_1" type="radio" value="2"/> Depende</div>
+<div><input name="Senhas Seguras_1" type="radio" value="3"/> Somente em redes sociais</div>
+</div>
+<div class="mb-2">
+<label>Qual ferramenta ajuda a gerenciar senhas?</label>
+<div><input name="Senhas Seguras_2" type="radio" value="0"/> Gerenciador de senhas</div>
+<div><input name="Senhas Seguras_2" type="radio" value="1"/> Editor de texto</div>
+<div><input name="Senhas Seguras_2" type="radio" value="2"/> Planilha</div>
+<div><input name="Senhas Seguras_2" type="radio" value="3"/> Navegador</div>
+</div>
+<div class="mb-2">
+<label>Devo compartilhar minha senha?</label>
+<div><input name="Senhas Seguras_3" type="radio" value="0"/> Nunca</div>
+<div><input name="Senhas Seguras_3" type="radio" value="1"/> Somente com amigos</div>
+<div><input name="Senhas Seguras_3" type="radio" value="2"/> Sim</div>
+<div><input name="Senhas Seguras_3" type="radio" value="3"/> Depende</div>
+</div>
+<div class="mb-2">
+<label>Senha deve ser trocada com que frequência?</label>
+<div><input name="Senhas Seguras_4" type="radio" value="0"/> Nunca</div>
+<div><input name="Senhas Seguras_4" type="radio" value="1"/> Regularmente</div>
+<div><input name="Senhas Seguras_4" type="radio" value="2"/> A cada 10 anos</div>
+<div><input name="Senhas Seguras_4" type="radio" value="3"/> Somente se esquecida</div>
+</div>
+<button class="btn btn-success" onclick="validar_Senhas Seguras()">Verificar Respostas</button>
+<div class="mt-2" id="feedback_Senhas Seguras"></div>
+</div>
+</div>
+<div class="col-md-4">
+<h4>Simulação de Phishing</h4>
+<div class="card">
+<div class="card-body">
+<p><strong>De:</strong> suporte@banco.com</p>
+<p><strong>Assunto:</strong> Atualização urgente</p>
+<p>Olá usvcé,</p>
+<p>É necessária uma ação imediata para atualizar suas informações de conta.</p>
+<p><a class="text-danger" href="#">Clique aqui para atualizar</a></p>
+<button class="btn btn-success" onclick="alert('Resposta incorreta. Este e-mail é fraudulento. Ele contém erros de ortografia como &quot;usvcé&quot;, linguagem de urgência exagerada e link suspeito.');">Legítimo</button>
+<button class="btn btn-danger" onclick="alert('Parabéns! Você identificou corretamente que o e-mail é fraudulento. Ele contém erros de ortografia como &quot;usvcé&quot;, linguagem de urgência exagerada e um link suspeito que simula um ataque real.');">Fraudulento</button>
+<div class="mt-3 alert alert-info">Feedback: Este e-mail contém sinais de phishing como erros de ortografia e links suspeitos.</div>
+</div>
+</div>
+<h4 class="mt-4">Relatório de Desempenho</h4>
+<div class="card">
+<div class="card-body">
+<p>Gráfico de barras (simulado)</p>
+<div class="progress mb-2">
+<div class="progress-bar" style="width: 30%">Módulo 1</div>
+</div>
+<div class="progress mb-2">
+<div class="progress-bar bg-success" style="width: 60%">Módulo 2</div>
+</div>
+<div class="progress mb-2">
+<div class="progress-bar bg-info" style="width: 90%">Módulo 3</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <script>
-function mostrarIntroducao() {
-  const intro = document.getElementById('intro');
-  intro.style.display = intro.style.display === 'block' ? 'none' : 'block';
+         function validarSimulacao(respostaUsuario) {
+           let feedback = document.getElementById("feedback_simulacao");
+           let correta = true; // A mensagem é fraudulenta
+           if (respostaUsuario === correta) {
+             window.alert("Parabéns! Você identificou corretamente que o e-mail é fraudulento. Ele contém erros de ortografia como 'usvcé', linguagem de urgência exagerada e um link suspeito que simula um ataque real.");
+             feedback.innerHTML = '<div class="alert alert-success">Correto! Esta mensagem é fraudulenta. Ela contém erros de ortografia, urgência artificial e link suspeito.</div>';
+           } else {
+             window.alert("Resposta incorreta. Este e-mail é fraudulento. Observe os sinais: erro de ortografia ('usvcé'), urgência artificial e link suspeito. Esses são indícios comuns de tentativas de phishing.");
+             feedback.innerHTML = '<div class="alert alert-danger">Incorreto. Esta mensagem é fraudulenta. Fique atento aos sinais como erros sutis e links suspeitos.</div>';
+           }
+         }
+      </script>
+<script>
+function mostrarConteudo(id) {
+    const ids = ['Introdução_perguntas', 'Phishing_perguntas', 'Engenharia Social_perguntas', 'Senhas Seguras_perguntas'];
+    ids.forEach(function(item) {
+        document.getElementById(item).style.display = (item === id) ? 'block' : 'none';
+    });
 }
-
-function verificarRespostas() {
-  const respostasCorretas = { q1:'b', q2:'b', q3:'b', q4:'b', q5:'b' };
-  let acertos = 0, erros = 0;
-  for (let pergunta in respostasCorretas) {
-    const resposta = document.querySelector(`input[name="${pergunta}"]:checked`);
-    if (resposta) {
-      resposta.value === respostasCorretas[pergunta] ? acertos++ : erros++;
-    } else {
-      erros++;
-    }
-  }
-  document.getElementById('resultado').innerText = `Você acertou ${acertos} e errou ${erros} perguntas.`;
-}
-</script>
-
-</body>
-
+</script></body>
 </html>
-
-
-
-
-
-
