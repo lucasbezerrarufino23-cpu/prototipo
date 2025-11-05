@@ -176,12 +176,12 @@
 </div>
 <div class="col-md-3">
 <div class="card bg-secondary text-white">
-<div class="card-body"><a class="text-white" href="#" onclick="mostrarConteudo('Engenharia Social_perguntas')">Engenharia Social</a></div>
+<div class="card-body"><a class="text-white" href="#" onclick="mostrarConteudo('Engenharia_Social_perguntas')">Engenharia Social</a></div>
 </div>
 </div>
 <div class="col-md-3">
 <div class="card bg-secondary text-white">
-<div class="card-body"><a class="text-white" href="#" onclick="mostrarConteudo('Senhas Seguras_perguntas')">Senhas Seguras</a></div>
+<div class="card-body"><a class="text-white" href="#" onclick="mostrarConteudo('Senhas_Seguras_perguntas')">Senhas Seguras</a></div>
 </div>
 </div>
 </div>
@@ -222,7 +222,7 @@
 <div><input name="Introdução_4" type="radio" value="2"/> Calculadora</div>
 <div><input name="Introdução_4" type="radio" value="3"/> Jogos</div>
 </div>
-<button class="btn btn-success" onclick="validar_Introdução()">Verificar Respostas</button>
+<button class="btn btn-success" onclick="verificarRespostas('Introdução')">Verificar Respostas</button>
 <div class="mt-2" id="feedback_Introdução"></div>
 </div>
 <div class="mt-3" id="Phishing_perguntas" style="display:none">
@@ -262,10 +262,10 @@
 <div><input name="Phishing_4" type="radio" value="2"/> Apenas por e-mail</div>
 <div><input name="Phishing_4" type="radio" value="3"/> Somente em sites</div>
 </div>
-<button class="btn btn-success" onclick="validar_Phishing()">Verificar Respostas</button>
+<button class="btn btn-success" onclick="verificarRespostas('Phishing')">Verificar Respostas</button>
 <div class="mt-2" id="feedback_Phishing"></div>
 </div>
-<div class="mt-3" id="Engenharia Social_perguntas" style="display:none">
+<div class="mt-3" id="Engenharia_Social_perguntas" style="display:none">
 <h5>Perguntas sobre Engenharia Social</h5>
 <div class="mb-2">
 <label>O que é engenharia social?</label>
@@ -302,10 +302,10 @@
 <div><input name="Engenharia Social_4" type="radio" value="2"/> Usar redes abertas</div>
 <div><input name="Engenharia Social_4" type="radio" value="3"/> Compartilhar dados</div>
 </div>
-<button class="btn btn-success" onclick="validar_Engenharia Social()">Verificar Respostas</button>
-<div class="mt-2" id="feedback_Engenharia Social"></div>
+<button class="btn btn-success" onclick="verificarRespostas('Engenharia_Social')">Verificar Respostas</button>
+<div class="mt-2" id="feedback_Engenharia_Social"></div>
 </div>
-<div class="mt-3" id="Senhas Seguras_perguntas" style="display:none">
+<div class="mt-3" id="Senhas_Seguras_perguntas" style="display:none">
 <h5>Perguntas sobre Senhas Seguras</h5>
 <div class="mb-2">
 <label>Como criar senha forte?</label>
@@ -342,8 +342,8 @@
 <div><input name="Senhas Seguras_4" type="radio" value="2"/> A cada 10 anos</div>
 <div><input name="Senhas Seguras_4" type="radio" value="3"/> Somente se esquecida</div>
 </div>
-<button class="btn btn-success" onclick="validar_Senhas Seguras()">Verificar Respostas</button>
-<div class="mt-2" id="feedback_Senhas Seguras"></div>
+<button class="btn btn-success" onclick="verificarRespostas('Senhas_Seguras')">Verificar Respostas</button>
+<div class="mt-2" id="feedback_Senhas_Seguras"></div>
 </div>
 </div>
 <div class="col-md-4">
@@ -379,25 +379,50 @@
 </div>
 </div>
 </div>
-<script>
-         function validarSimulacao(respostaUsuario) {
-           let feedback = document.getElementById("feedback_simulacao");
-           let correta = true; // A mensagem é fraudulenta
-           if (respostaUsuario === correta) {
-             window.alert("Parabéns! Você identificou corretamente que o e-mail é fraudulento. Ele contém erros de ortografia como 'usvcé', linguagem de urgência exagerada e um link suspeito que simula um ataque real.");
-             feedback.innerHTML = '<div class="alert alert-success">Correto! Esta mensagem é fraudulenta. Ela contém erros de ortografia, urgência artificial e link suspeito.</div>';
-           } else {
-             window.alert("Resposta incorreta. Este e-mail é fraudulento. Observe os sinais: erro de ortografia ('usvcé'), urgência artificial e link suspeito. Esses são indícios comuns de tentativas de phishing.");
-             feedback.innerHTML = '<div class="alert alert-danger">Incorreto. Esta mensagem é fraudulenta. Fique atento aos sinais como erros sutis e links suspeitos.</div>';
-           }
-         }
-      </script>
+
+
+
 <script>
 function mostrarConteudo(id) {
-    const ids = ['Introdução_perguntas', 'Phishing_perguntas', 'Engenharia Social_perguntas', 'Senhas Seguras_perguntas'];
+    const ids = ['Introdução_perguntas', 'Phishing_perguntas', 'Engenharia_Social_perguntas', 'Senhas_Seguras_perguntas'];
     ids.forEach(function(item) {
-        document.getElementById(item).style.display = (item === id) ? 'block' : 'none';
+        const el = document.getElementById(item);
+        if (el) el.style.display = (item === id) ? 'block' : 'none';
     });
 }
-</script></body>
+
+function verificarRespostas(bloco) {
+    if (!bloco) return alert("Erro: nome do bloco não foi informado.");
+
+    const respostasCorretas = {
+        "Introdução": ["1", "1", "1", "1", "1"],
+        "Phishing": ["1", "1", "0", "2", "1"],
+        "Engenharia_Social": ["0", "1", "0", "1", "0"],
+        "Senhas_Seguras": ["1", "1", "0", "0", "1"]
+    };
+
+    const totalPerguntas = 5;
+    let acertos = 0;
+    let feedback = "";
+
+    for (let i = 0; i < totalPerguntas; i++) {
+        const nomeCampo = bloco.replace('_', ' ') + '_' + i;
+        const selecionada = document.querySelector(`input[name="${nomeCampo}"]:checked`);
+        if (selecionada) {
+            if (selecionada.value === respostasCorretas[bloco][i]) {
+                feedback += `<p>Pergunta ${i + 1}: ✅ Correta</p>`;
+                acertos++;
+            } else {
+                feedback += `<p>Pergunta ${i + 1}: ❌ Incorreta</p>`;
+            }
+        } else {
+            feedback += `<p>Pergunta ${i + 1}: ⚠️ Não respondida</p>`;
+        }
+    }
+
+    feedback += `<hr><strong>Total de acertos: ${acertos} / ${totalPerguntas}</strong>`;
+    document.getElementById(`feedback_${bloco}`).innerHTML = feedback;
+}
+</script>
+</body>
 </html>
